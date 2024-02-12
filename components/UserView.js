@@ -5,6 +5,7 @@ import { Alert, View } from "react-native";
 import Style from "../styles/Style";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
+
 export default function UserView() {
   const [name, setName] = useState('');
   const { username, setUsername } = useContext(UserContext);
@@ -27,7 +28,8 @@ export default function UserView() {
         {header}
       </Text>
       <TextInput style={Style.formfieldbutton} label={'Name'} value={name} onChangeText={setName} />
-      <Button style={Style.formfieldbutton} mode="outlined" onPress={changeUser} labelStyle={{ color:Colors.black }}>
+     
+      <Button style={Style.formfieldbutton} mode="outlined" onPress={changeUser} labelStyle={{ color:Colors.black }} >
         Change user
       </Button>
     </View>

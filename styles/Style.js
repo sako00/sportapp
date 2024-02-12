@@ -11,6 +11,7 @@ const Colors = {
 export default Style = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight + 5,
+    
 
   },
   navview: {
@@ -28,6 +29,7 @@ export default Style = StyleSheet.create({
     margin: 2,
     backgroundColor: Colors.secondary,
     color: Colors.secondary,
+    
   
   },
   formfieldbutton: {
