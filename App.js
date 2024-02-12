@@ -1,20 +1,71 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { MessagesContext, UserContext } from './components/Contexts';
+import { Icon, PaperProvider } from 'react-native-paper';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import UserView from './components/UserView';
+import AddMessageView from './components/AddMessageView';
+import MessagesView from './components/MessagesView';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Style from './styles/Style';
+import { AddWorkoutProvider } from './components/AddWorkoutContext';
+import { useFonts } from 'expo-font';
+
+
 
 export default function App() {
+
+  
+  const [username, setUsername] = useState('');
+  const [messages, setMessages] = useState([]);
+
+  console.log(messages);
+
+  const [loaded] = useFonts({
+    Inconsolata: require('./font/Inconsolata-VariableFont_wdth,wght.ttf')
+  })
+  if (!loaded) {
+    return null;
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <UserContext.Provider value={{ username, setUsername }}>
+      <MessagesContext.Provider value={{ messages, setMessages }}>
+        <AddWorkoutProvider>
+          <PaperProvider>
+            <SafeAreaProvider>
+              <Navigation />
+            </SafeAreaProvider>
+          </PaperProvider>
+        </AddWorkoutProvider>
+      </MessagesContext.Provider>
+    </UserContext.Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+const Tab = createMaterialTopTabNavigator();
+
+function Navigation() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator tabBarPosition='bottom' style={Style.container} screenOptions={{tabBarActiveTintColor: '#9999CC', tabBarInactiveTintColor: '#879DDA'}}>
+        <Tab.Screen
+          name='user'
+          options={{ title: 'User', tabBarIcon: ({color}) => <Icon color={color} source='account' size={24} /> }}
+          component={UserView}
+        />
+        <Tab.Screen
+          name='addmessage'
+          options={{ title: 'Add sport', tabBarIcon: ({color}) => <Icon color={color} source='message' size={24} /> }}
+          component={AddMessageView}
+        />
+        <Tab.Screen
+          name='messages'
+          options={{ title: 'Sport diary', tabBarIcon: ({color}) => <Icon color={color} source='clipboard' size={24} /> }}
+          component={MessagesView}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
