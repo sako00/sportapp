@@ -63,4 +63,12 @@ export default Style = StyleSheet.create({
     fontFamily: 'Inconsolata',
   
   },
+  textline:{
+    textAlign: 'center',
+    fontFamily: 'Inconsolata',
+    fontSize: 20,
+    color: Colors.black,
+    marginTop: 30,
+    padding: 10,
+  }
 });

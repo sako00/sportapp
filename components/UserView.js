@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Button, Text, TextInput } from "react-native-paper";
 import { UserContext } from "./Contexts";
-import { Alert, View } from "react-native";
+import { Alert, View, Icon } from "react-native";
 import Style from "../styles/Style";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
@@ -32,6 +32,10 @@ export default function UserView() {
       <Button style={Style.formfieldbutton} mode="outlined" onPress={changeUser} labelStyle={{ color:Colors.black }} >
         Change user
       </Button>
+      <Text style={Style.textline}>Your Exercise Log</Text>
+      <Text style={Style.textline}>Stay Active, Stay Healthy </Text>
+      <Text style={Style.textline}>Track Your Workouts </Text>
+      <Text style={Style.textline} >Stay Motivated</Text>
     </View>
   );
 }
