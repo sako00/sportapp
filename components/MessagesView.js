@@ -54,7 +54,7 @@ export default function MessagesView() {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
        
-            <View style={{ margin: 5 }}>
+            <View style={{margin:10}}>
               <Text style={Style.flat}>{`Sport: ${item.sport}`}</Text>
               <Text style={Style.flat}>{`Distance: ${item.distance} ${units}`}</Text>
               <Text style={Style.flat}>{`Duration: ${item.duration} minutes`}</Text>
