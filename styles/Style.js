@@ -62,6 +62,7 @@ export default Style = StyleSheet.create({
     fontFamily: 'Inconsolata',
   
   },
+  
   textline:{
     textAlign: 'center',
     fontFamily: 'Inconsolata',
