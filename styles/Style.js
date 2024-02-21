@@ -60,6 +60,8 @@ export default Style = StyleSheet.create({
     margin: 5,
     textAlign: 'center',
     fontFamily: 'Inconsolata',
+    fontSize: 16,
+    
   
   },
   
@@ -70,5 +72,17 @@ export default Style = StyleSheet.create({
     color: Colors.black,
     marginTop: 30,
     padding: 10,
+  },
+  textbox:{
+    margin:10, 
+    borderWidth:2,
+    borderColor: Colors.black,
+    backgroundColor: Colors.secondary,
+    borderRadius: 10,
+    padding: 10,
+    
+  },
+  historytext:{
+    marginBottom: 90,
   }
 });

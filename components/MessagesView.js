@@ -33,7 +33,7 @@ export default function MessagesView() {
    
     <View style={Style.navview}>
       <Text variant="headlineLarge" style={Style.header}>
-        Workout List
+        Workout History List
       </Text>
       <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
         <Text>Units:</Text>
@@ -49,12 +49,12 @@ export default function MessagesView() {
         </RadioButton.Group>
       </View>
       
-      <FlatList
+      <FlatList style={Style.historytext}
         data={workouts}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
        
-            <View style={{margin:10}}>
+            <View style={Style.textbox}>
               <Text style={Style.flat}>{`Sport: ${item.sport}`}</Text>
               <Text style={Style.flat}>{`Distance: ${item.distance} ${units}`}</Text>
               <Text style={Style.flat}>{`Duration: ${item.duration} minutes`}</Text>
