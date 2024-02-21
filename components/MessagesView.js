@@ -48,16 +48,16 @@ export default function MessagesView() {
       <Text variant="headlineLarge" style={Style.header}>
         Workout History List
       </Text>
-      <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
+      <View style={Style.unitsContainer}>
         <Text style={Style.unitsbutton}>Units:</Text>
-        <RadioButton.Group  onValueChange={handleUnitChange} value={units}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <RadioButton value="km" />
+        <RadioButton.Group  onValueChange={handleUnitChange} value={units} >
+          <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+            <RadioButton  value="km" />
             <Text >Kilometers</Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <RadioButton value="mi" />
-            <Text>Miles</Text>
+            <Text >Miles</Text>
           </View>
         </RadioButton.Group>
       </View>

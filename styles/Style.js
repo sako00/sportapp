@@ -94,11 +94,16 @@ export default Style = StyleSheet.create({
     padding: 1,
   },
   unitsbutton:{
-    textAlign: 'center',
     fontSize: 14,
-    color: Colors.black,
     marginTop: 1,
     padding: 1,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
+    
+  },
+  unitsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 10,
   },
 });
