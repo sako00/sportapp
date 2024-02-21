@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { AddWorkoutContext } from './AddWorkoutContext';
+import Icon from 'react-native-vector-icons/FontAwesome'; 
+
 import Style from '../styles/Style';
 
 export default function MessagesView() {
@@ -70,10 +72,10 @@ export default function MessagesView() {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={Style.textbox}>
-            <Text style={Style.flat}>{`Sport: ${item.sport}`}</Text>
-            <Text style={Style.flat}>{`Distance: ${item.distance} ${units}`}</Text>
-            <Text style={Style.flat}>{`Duration: ${item.duration} minutes`}</Text>
-            <Text style={Style.flat}>{`Date: ${item.date}`}</Text>
+            <Text style={Style.flat}>  {`Sport: ${item.sport}`}</Text>
+            <Text style={Style.flat}>  {`Distance: ${item.distance} ${units}`}</Text>
+            <Text style={Style.flat}>  {`Duration: ${item.duration} minutes`}</Text>
+            <Text style={Style.flat}>  <Icon name="calendar" size={15}/> {`Date: ${item.date}`}</Text>
           </View>
         )}
       />
