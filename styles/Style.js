@@ -75,7 +75,7 @@ export default Style = StyleSheet.create({
   },
   textbox:{
     margin:10, 
-    borderWidth:2,
+    borderWidth:1,
     borderColor: Colors.black,
     backgroundColor: Colors.secondary,
     borderRadius: 10,
