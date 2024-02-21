@@ -11,7 +11,7 @@ export default function UserView() {
   const [name, setName] = useState('');
   const { username, setUsername } = useContext(UserContext);
 
-  let header = username === '' ? 'Sport App user name:' : 'Welcome ' + username;
+  let header = username === '' ? 'Sport App User Name:' : 'Welcome ' + username;
 
   function changeUser() {
     if (name.trim() === '') {

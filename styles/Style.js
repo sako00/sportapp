@@ -57,10 +57,10 @@ export default Style = StyleSheet.create({
   
   },
   flat: {
-    margin: 5,
+    margin: 2,
     textAlign: 'center',
     fontFamily: 'Inconsolata',
-    fontSize: 16,
+    fontSize: 14,
     
   
   },
@@ -83,6 +83,22 @@ export default Style = StyleSheet.create({
     
   },
   historytext:{
-    marginBottom: 90,
-  }
+    height: 450,
+  },
+  historyheader:{
+    textAlign: 'center',
+    fontFamily: 'Inconsolata',
+    fontSize: 14,
+    color: Colors.black,
+    marginTop: 1,
+    padding: 1,
+  },
+  unitsbutton:{
+    textAlign: 'center',
+    fontSize: 14,
+    color: Colors.black,
+    marginTop: 1,
+    padding: 1,
+    fontWeight: 'bold',
+  },
 });

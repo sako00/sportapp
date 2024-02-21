@@ -7,6 +7,19 @@ import Style from '../styles/Style';
 export default function MessagesView() {
   const { workouts,setWorkouts, units, setUnits } = useContext(AddWorkoutContext); // Get units and setUnits from AddWorkoutContext
 
+  const sumDistances = () => {
+    return workouts.reduce((sum, workout) => {
+      return sum + parseFloat(workout.distance);
+    }, 0).toFixed(2);
+  };
+
+  // Function to calculate sum of durations
+  const sumDurations = () => {
+    return workouts.reduce((sum, workout) => {
+      return sum + parseFloat(workout.duration);
+    }, 0).toFixed(2);
+  
+  };
   const handleUnitChange = (newUnit) => {
     // Update the selected unit
     setUnits(newUnit);
@@ -36,11 +49,11 @@ export default function MessagesView() {
         Workout History List
       </Text>
       <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-        <Text>Units:</Text>
-        <RadioButton.Group onValueChange={handleUnitChange} value={units}>
+        <Text style={Style.unitsbutton}>Units:</Text>
+        <RadioButton.Group  onValueChange={handleUnitChange} value={units}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <RadioButton value="km" />
-            <Text>Kilometers</Text>
+            <Text >Kilometers</Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <RadioButton value="mi" />
@@ -49,21 +62,21 @@ export default function MessagesView() {
         </RadioButton.Group>
       </View>
       
-      <FlatList style={Style.historytext}
+      <Text style={Style.historyheader}>Total Distance: {sumDistances()} {units}</Text>
+      <Text style={Style.historyheader}>Total Duration: {sumDurations()} minutes</Text>
+      <FlatList
+        style={Style.historytext}
         data={workouts}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
-       
-            <View style={Style.textbox}>
-              <Text style={Style.flat}>{`Sport: ${item.sport}`}</Text>
-              <Text style={Style.flat}>{`Distance: ${item.distance} ${units}`}</Text>
-              <Text style={Style.flat}>{`Duration: ${item.duration} minutes`}</Text>
-              <Text style={Style.flat}>{`Date: ${item.date}`}</Text>
-            </View>
-          
+          <View style={Style.textbox}>
+            <Text style={Style.flat}>{`Sport: ${item.sport}`}</Text>
+            <Text style={Style.flat}>{`Distance: ${item.distance} ${units}`}</Text>
+            <Text style={Style.flat}>{`Duration: ${item.duration} minutes`}</Text>
+            <Text style={Style.flat}>{`Date: ${item.date}`}</Text>
+          </View>
         )}
       />
     </View>
-
   );
 }
