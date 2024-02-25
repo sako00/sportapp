@@ -10,22 +10,22 @@ const AddWorkoutProvider = ({ children }) => {
   const [workouts, setWorkouts] = useState([]);
   const [units, setUnits] = useState('km'); // Default unit is kilometers
 
-    // Load workout data from AsyncStorage when the component mounts
-    useEffect(() => {
-      const loadWorkouts = async () => {
-        try {
-          const savedWorkouts = await AsyncStorage.getItem('workouts');
-          if (savedWorkouts) {
-            setWorkouts(JSON.parse(savedWorkouts));
-          }
-        } catch (error) {
-          console.error('Error loading workouts:', error);
+  // Load workout data from AsyncStorage when the component mounts
+  useEffect(() => {
+    const loadWorkouts = async () => {
+      try {
+        const savedWorkouts = await AsyncStorage.getItem('workouts');
+        if (savedWorkouts) {
+          setWorkouts(JSON.parse(savedWorkouts));
         }
-      };
-      loadWorkouts();
-    }, []);
+      } catch (error) {
+        console.error('Error loading workouts:', error);
+      }
+    };
+    loadWorkouts();
+  }, []);
 
-    // Save workout data to AsyncStorage whenever it changes
+  // Save workout data to AsyncStorage whenever it changes
   useEffect(() => {
     const saveWorkouts = async () => {
       try {
@@ -61,7 +61,7 @@ const AddWorkoutProvider = ({ children }) => {
     setWorkouts((prevWorkouts) => [...prevWorkouts, { ...workout, distance }]);
   };
 
-   
+
 
   // Export setUnits along with workouts, addWorkout, and units
   return (
