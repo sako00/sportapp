@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
 import { RadioButton } from 'react-native-paper'; // Import RadioButton from react-native-paper
 import { AddWorkoutContext } from './AddWorkoutContext';
+import { FontAwesome } from '@expo/vector-icons';
 import Style from '../styles/Style';
 
 export default function SettingsView() {
@@ -29,6 +30,23 @@ export default function SettingsView() {
                     </View>
                 </RadioButton.Group>
             </View>
+            <View style={Style.sportTextContainer}>
+        <Text style={Style.sportText}>Sweat, Smile, Repeat!</Text>
+        <FontAwesome name="heartbeat" size={24} color="black" style={Style.icon} />
+    </View>
+    <View style={Style.sportTextContainer}>
+        <Text style={Style.sportText}>Stay Strong, Stay Focused</Text>
+        <FontAwesome name="star" size={24} color="black" style={Style.icon} />
+    </View>
+    <View style={Style.sportTextContainer}>
+        <Text style={Style.sportText}>Exercise regularly!</Text>
+        <FontAwesome name="spinner" size={24} color="black" style={Style.icon} />
+    </View>
+    <View style={Style.sportTextContainer}>
+        <Text style={Style.sportText}>Push Your Limits</Text>
+        <FontAwesome name="bolt" size={24} color="black" style={Style.icon} />
+    </View>
         </View>
+        
     );
 }

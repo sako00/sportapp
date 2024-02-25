@@ -13,7 +13,7 @@ export default function AddMessageView() {
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
   const [snackbarVisible, setSnackbarVisible] = useState(false);
 
-  const header = workout === '' ? 'Set user for sending messages' : 'Add workout';
+  const header = workout === '' ? 'Set user for sending messages' : 'Add Workout';
 
   const handleAddWorkout = () => {
     // Validate numeric values for distance and duration

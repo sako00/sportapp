@@ -111,4 +111,22 @@ export default Style = StyleSheet.create({
     padding: 15,
     borderColor: Colors.primary,
   },
+  sportTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+},
+sportText: {
+    fontFamily: 'Inconsolata',
+    fontSize: 18,
+    margin: 10, 
+    marginTop: 40,
+},
+icon: {
+    margin: 10, 
+    marginTop: 40,
+},
+    
+    
+  
 });
