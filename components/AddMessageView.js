@@ -1,20 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { Button, Text, TextInput, IconButton, Snackbar } from 'react-native-paper';
 import { ScrollView, View } from 'react-native';
-import { UserContext } from './Contexts';
 import { AddWorkoutContext } from './AddWorkoutContext';
 import { Calendar } from 'react-native-calendars'; // Import Calendar component
 import Style from '../styles/Style';
 
 export default function AddMessageView() {
-  const { username } = useContext(UserContext);
+ 
   const { addWorkout, units } = useContext(AddWorkoutContext);
 
   const [workout, setWorkout] = useState({ sport: '', distance: '', duration: '', date: new Date() });
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
   const [snackbarVisible, setSnackbarVisible] = useState(false);
 
-  const header = username === '' ? 'Set user for sending messages' : 'Add workout';
+  const header = workout === '' ? 'Set user for sending messages' : 'Add workout';
 
   const handleAddWorkout = () => {
     // Validate numeric values for distance and duration
@@ -46,7 +45,7 @@ export default function AddMessageView() {
       <Text variant="headlineLarge" style={Style.header}>
         {header}
       </Text>
-      {username !== '' && (
+      {workout !== '' && (
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 }}>
             <IconButton icon="run" onPress={() => setWorkout({ ...workout, sport: 'run' })} color={workout.sport === 'run' ? 'blue' : 'black'} />

@@ -83,7 +83,7 @@ export default Style = StyleSheet.create({
     
   },
   historytext:{
-    height: 450,
+    height: 550,
   },
   historyheader:{
     textAlign: 'center',
