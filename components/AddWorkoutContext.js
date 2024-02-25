@@ -1,11 +1,42 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const AddWorkoutContext = createContext();
 
+
+
 const AddWorkoutProvider = ({ children }) => {
   const [workouts, setWorkouts] = useState([]);
   const [units, setUnits] = useState('km'); // Default unit is kilometers
+
+    // Load workout data from AsyncStorage when the component mounts
+    useEffect(() => {
+      const loadWorkouts = async () => {
+        try {
+          const savedWorkouts = await AsyncStorage.getItem('workouts');
+          if (savedWorkouts) {
+            setWorkouts(JSON.parse(savedWorkouts));
+          }
+        } catch (error) {
+          console.error('Error loading workouts:', error);
+        }
+      };
+      loadWorkouts();
+    }, []);
+
+    // Save workout data to AsyncStorage whenever it changes
+  useEffect(() => {
+    const saveWorkouts = async () => {
+      try {
+        await AsyncStorage.setItem('workouts', JSON.stringify(workouts));
+      } catch (error) {
+        console.error('Error saving workouts:', error);
+      }
+    };
+    saveWorkouts();
+  }, [workouts]);
+
 
   const addWorkout = (workout) => {
     // Check if distance or duration is empty
@@ -29,6 +60,8 @@ const AddWorkoutProvider = ({ children }) => {
     // Update shared state
     setWorkouts((prevWorkouts) => [...prevWorkouts, { ...workout, distance }]);
   };
+
+   
 
   // Export setUnits along with workouts, addWorkout, and units
   return (
