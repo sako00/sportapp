@@ -6,7 +6,7 @@ import { Calendar } from 'react-native-calendars'; // Import Calendar component
 import Style from '../styles/Style';
 
 export default function AddMessageView() {
- 
+
   const { addWorkout, units } = useContext(AddWorkoutContext);
 
   const [workout, setWorkout] = useState({ sport: '', distance: '', duration: '', date: new Date() });
@@ -97,7 +97,7 @@ export default function AddMessageView() {
         duration={3000}
       >
 
-      
+
         Workout added successfully!
       </Snackbar>
     </View>

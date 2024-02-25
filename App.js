@@ -15,8 +15,8 @@ import { useFonts } from 'expo-font';
 
 export default function App() {
 
-  
- 
+
+
   const [messages, setMessages] = useState([]);
 
   console.log(messages);
@@ -29,17 +29,17 @@ export default function App() {
   };
 
   return (
-  
-      <MessagesContext.Provider value={{ messages, setMessages }}>
-        <AddWorkoutProvider>
-          <PaperProvider>
-            <SafeAreaProvider>
-              <Navigation />
-            </SafeAreaProvider>
-          </PaperProvider>
-        </AddWorkoutProvider>
-      </MessagesContext.Provider>
-    
+
+    <MessagesContext.Provider value={{ messages, setMessages }}>
+      <AddWorkoutProvider>
+        <PaperProvider>
+          <SafeAreaProvider>
+            <Navigation />
+          </SafeAreaProvider>
+        </PaperProvider>
+      </AddWorkoutProvider>
+    </MessagesContext.Provider>
+
   );
 }
 
@@ -49,21 +49,21 @@ const Tab = createMaterialTopTabNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Tab.Navigator tabBarPosition='bottom' style={Style.container} screenOptions={{tabBarActiveTintColor: '#9999CC', tabBarInactiveTintColor: '#879DDA'}}>
-        
+      <Tab.Navigator tabBarPosition='bottom' style={Style.container} screenOptions={{ tabBarActiveTintColor: '#9999CC', tabBarInactiveTintColor: '#879DDA' }}>
+
         <Tab.Screen
           name='addmessage'
-          options={{ title: 'Add sport', tabBarIcon: ({color}) => <Icon color={color} source='message' size={24} /> }}
+          options={{ title: 'Add sport', tabBarIcon: ({ color }) => <Icon color={color} source='message' size={24} /> }}
           component={AddMessageView}
         />
         <Tab.Screen
           name='messages'
-          options={{ title: 'Sport diary', tabBarIcon: ({color}) => <Icon color={color} source='clipboard' size={24} /> }}
+          options={{ title: 'Sport diary', tabBarIcon: ({ color }) => <Icon color={color} source='clipboard' size={24} /> }}
           component={MessagesView}
         />
         <Tab.Screen
           name='settings'
-          options={{ title: 'Settings', tabBarIcon: ({color}) => <Icon color={color} source='cog' size={24} /> }}
+          options={{ title: 'Settings', tabBarIcon: ({ color }) => <Icon color={color} source='cog' size={24} /> }}
           component={SettingsView}
         />
       </Tab.Navigator>
