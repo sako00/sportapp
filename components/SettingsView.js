@@ -35,7 +35,7 @@ export default function SettingsView() {
         <FontAwesome name="heartbeat" size={24} color="black" style={Style.icon} />
     </View>
     <View style={Style.sportTextContainer}>
-        <Text style={Style.sportText}>Stay Strong, Stay Focused</Text>
+        <Text style={Style.sportText}>Stay Strong, Stay Focused!</Text>
         <FontAwesome name="star" size={24} color="black" style={Style.icon} />
     </View>
     <View style={Style.sportTextContainer}>
@@ -43,7 +43,7 @@ export default function SettingsView() {
         <FontAwesome name="spinner" size={24} color="black" style={Style.icon} />
     </View>
     <View style={Style.sportTextContainer}>
-        <Text style={Style.sportText}>Push Your Limits</Text>
+        <Text style={Style.sportText}>Push Your Limits!</Text>
         <FontAwesome name="bolt" size={24} color="black" style={Style.icon} />
     </View>
         </View>
