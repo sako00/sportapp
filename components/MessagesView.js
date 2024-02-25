@@ -69,7 +69,7 @@ export default function MessagesView() {
       <FlatList
         style={Style.historytext}
         data={workouts}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(_item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={Style.textbox}>
             <Text style={Style.flat}>  {`Sport: ${item.sport}`}</Text>
